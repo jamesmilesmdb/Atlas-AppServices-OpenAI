@@ -1,0 +1,9 @@
+{
+    "app_id": "openai-yszel",
+    "config_version": 20210101,
+    "name": "OpenAI",
+    "location": "IE",
+    "provider_region": "aws-eu-west-1",
+    "deployment_model": "LOCAL",
+    "environment": "testing"
+}
