@@ -3,7 +3,7 @@ exports = async function(changeEvent){
   // ========== DEFINE CONTEXT ========== //
   
   const mongodb = context.services.get("mongodb-atlas");
-  const customers = mongodb.db("JLR").collection("VehicleExample");
+  const vehicleExample = mongodb.db("JLR").collection("VehicleExample");
   
   // ========== HANDLE CHANGE EVENT ========== //
   
@@ -11,7 +11,7 @@ exports = async function(changeEvent){
   const { fullDocument } = changeEvent;
   const { _id } = fullDocument;
   
-  const vehicle = await customers.findOne({ _id: _id });
+  const vehicle = await vehicleExample.findOne({ _id: _id });
   // const responseObject = EJSON.parse(vehicle.body.text());
   console.log(vehicle.brand);
   
@@ -60,7 +60,7 @@ exports = async function(changeEvent){
   };
   const options = { "upsert": true };
   
-  const vehicleUpdate = await customers.updateOne(query, update, options);
+  const vehicleUpdate = await vehicleExample.updateOne(query, update, options);
   // Verify update in logs
   console.log(vehicleUpdate);
 
